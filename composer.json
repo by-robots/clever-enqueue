@@ -1,0 +1,16 @@
+{
+    "name": "byrobots/clever-enqueue",
+    "description": "Allows for conditional enqueuing of Javascript and CSS assets in WordPress.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "By Robots",
+            "email": "skynet@by-robots.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
