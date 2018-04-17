@@ -17,6 +17,12 @@ class Retrieves_JSON {
 		}
 
 		$fileContents = file_get_contents($file);
-		return json_decode($fileContents);
+		$json         = json_decode($fileContents);
+
+		if (json_last_error() === JSON_ERROR_NONE) {
+			return $json;
+		}
+
+		throw new \Exception('JSON passed was invalid.');
 	}
 }

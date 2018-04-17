@@ -25,7 +25,7 @@ class Retrieves_JSON extends \WP_UnitTestCase {
 	 * Test JSON is retrieved when the file exists.
 	 */
 	public function testExists() {
-		$result = $this->class->retrieve(__DIR__ . '/testdata/Retrieves_JSON.json');
+		$result = $this->class->retrieve(__DIR__ . '/testdata/retrieves-json.json');
 		$this->assertTrue(is_object($result));
 	}
 
@@ -35,5 +35,13 @@ class Retrieves_JSON extends \WP_UnitTestCase {
 	public function testDoesntExist() {
 		$this->expectException(\Exception::class);
 		$this->class->retrieve(__DIR__ . '/testdata/abc123.json');
+	}
+
+	/**
+	 * Test invalid JSON is handled responsibly.
+	 */
+	public function testInvalidJSON() {
+		$this->expectException(\Exception::class);
+		$this->class->retrieve(__DIR__ . '/testdata/invalid-json.json');
 	}
 }
