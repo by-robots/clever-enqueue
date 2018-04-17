@@ -14,6 +14,5 @@ class Clever_Enqueue {
 	 * Install the plugin.
 	 */
 	public function install() {
-		//
 	}
 }
