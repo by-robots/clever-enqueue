@@ -2,8 +2,6 @@
 
 namespace ByRobots\CleverEnqueue\Tests;
 
-use PHPUnit\Exception;
-
 class Retrieves_JSON extends \WP_UnitTestCase {
 	/**
 	 * @var \ByRobots\CleverEnqueue\Retrieves_JSON
@@ -35,7 +33,7 @@ class Retrieves_JSON extends \WP_UnitTestCase {
 	 * When the file does not exist an exception should be thrown.
 	 */
 	public function testDoesntExist() {
-		$this->expectException(Exception::class);
+		$this->expectException(\Exception::class);
 		$this->class->retrieve(__DIR__ . '/testdata/abc123.json');
 	}
 }
