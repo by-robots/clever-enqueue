@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Clever Enqueue
  * Plugin URI: https://clever-enqueue.by-robots.com
@@ -8,9 +7,11 @@
  * Author: By Robots
  * Author URI: https://www.by-robots.com
  * License: MIT
+ *
+ * @package ByRobots\CleverEnqueue
  */
 
-// No direct access
+// No direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
