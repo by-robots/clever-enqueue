@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Include the main WooCommerce class.
-if ( ! class_exists( 'Clever_Enqueue' ) ) {
+if ( ! class_exists( 'ByRobots\CleverEnqueue\Clever_Enqueue' ) ) {
 	include_once dirname( __FILE__ ) . '/includes/class-clever-enqueue.php';
 }
 
@@ -26,10 +26,10 @@ if ( ! class_exists( 'Clever_Enqueue' ) ) {
  * Returns the main instance of WC to prevent the need to use globals.
  *
  * @since  2.1
- * @return \Clever_Enqueue
+ * @return \ByRobots\CleverEnqueue\Clever_Enqueue
  */
 function clever_enqueue() {
-	return new Clever_Enqueue;
+	return new ByRobots\CleverEnqueue\Clever_Enqueue;
 }
 
 // Global for backwards compatibility.

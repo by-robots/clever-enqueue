@@ -1,5 +1,7 @@
 <?php
 
+namespace ByRobots\CleverEnqueue;
+
 class Clever_Enqueue {
 	/**
 	 * Set-up the plugin.
