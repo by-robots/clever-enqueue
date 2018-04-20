@@ -44,4 +44,15 @@ class Evaluates_File extends Test_Case {
 
 		$this->assertFalse( $this->class->should_load( $post, $rule ) );
 	}
+
+	/**
+	 * When two rules conflict the class should decide not to load the file.
+	 */
+	public function test_conflicting_rules() {
+		$rule     = json_decode( file_get_contents( __DIR__ . '/testdata/files/conflicting-rules.json' ) );
+		$post     = \Mockery::mock( \stdClass::class );
+		$post->ID = 123;
+
+		$this->assertFalse( $this->class->should_load( $post, $rule ) );
+	}
 }

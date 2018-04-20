@@ -31,8 +31,12 @@ class Evaluates_File {
 		$this->post = $post;
 
 		foreach ( $file->rules as $rule ) {
-			return $this->process_rule ( $rule );
+			if ( ! $this->process_rule ( $rule ) ) {
+				return false;
+			}
 		}
+
+		return true;
 	}
 
 	/**
