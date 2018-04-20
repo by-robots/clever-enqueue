@@ -2,7 +2,7 @@
 
 namespace ByRobots\CleverEnqueue\Tests;
 
-class Retrieves_JSON extends \WP_UnitTestCase {
+class Retrieves_JSON extends Test_Case {
 	/**
 	 * @var \ByRobots\CleverEnqueue\Retrieves_JSON
 	 */

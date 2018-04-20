@@ -1,0 +1,10 @@
+{
+  "javascript": [
+    {
+      "file": "javascript.js",
+      "rules": [
+        { "rule": "matches_id", "values": [123] }
+      ]
+    }
+  ]
+}
