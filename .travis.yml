@@ -47,6 +47,7 @@ before_script:
       composer global require wp-coding-standards/wpcs
       phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
     fi
+  - composer global require mockery/mockery:^1.0
 
 script:
   - |
