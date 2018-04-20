@@ -33,10 +33,10 @@ class Except_ID extends Test_Case {
 	 * If the ID of the current page matches an ID in the rule it should fail.
 	 */
 	public function test_passes() {
-		$post     = \Mockery::mock(\stdClass::class);
+		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 123;
 
-		$this->assertFalse($this->rule->passes($post, $this->testData));
+		$this->assertFalse( $this->rule->passes( $post, $this->testData ) );
 	}
 
 	/**
@@ -44,9 +44,9 @@ class Except_ID extends Test_Case {
 	 * pass.
 	 */
 	public function test_fails() {
-		$post     = \Mockery::mock(\stdClass::class);
+		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 321;
 
-		$this->assertTrue($this->rule->passes($post, $this->testData));
+		$this->assertTrue( $this->rule->passes( $post, $this->testData ) );
 	}
 }

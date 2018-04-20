@@ -26,8 +26,8 @@ class Test_Case extends \WP_UnitTestCase {
 		global $post;
 		$this->WP_Post = $post;
 
-		foreach ($this->interfaces as $interface => $definition) {
-			if (!interface_exists($interface)) {
+		foreach ( $this->interfaces as $interface => $definition ) {
+			if ( !interface_exists( $interface ) ) {
 				require $definition;
 			}
 		}

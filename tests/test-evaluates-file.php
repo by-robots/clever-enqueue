@@ -27,7 +27,7 @@ class Evaluates_File extends Test_Case {
 	 */
 	public function test_one_successful_rule() {
 		$rule     = json_decode( file_get_contents( __DIR__ . '/testdata/files/single-rule.json' ) );
-		$post     = \Mockery::mock(\stdClass::class);
+		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 123;
 
 		$this->assertTrue( $this->class->shouldLoad( $post, $rule ) );

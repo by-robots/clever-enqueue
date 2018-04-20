@@ -36,7 +36,7 @@ class Matches_ID extends Test_Case {
 		$post     = \Mockery::mock(\stdClass::class);
 		$post->ID = 123;
 
-		$this->assertTrue($this->rule->passes($post, $this->testData));
+		$this->assertTrue( $this->rule->passes( $post, $this->testData ) );
 	}
 
 	/**
@@ -44,9 +44,9 @@ class Matches_ID extends Test_Case {
 	 * fail.
 	 */
 	public function test_fails() {
-		$post     = \Mockery::mock(\stdClass::class);
+		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 321;
 
-		$this->assertFalse($this->rule->passes($post, $this->testData));
+		$this->assertFalse( $this->rule->passes( $post, $this->testData ) );
 	}
 }
