@@ -26,7 +26,7 @@ class Retrieves_JSON extends Test_Case {
 		}
 
 		$this->rule     = new \ByRobots\CleverEnqueue\Rules\Matches_ID;
-		$this->testData = json_decode( file_get_contents( __DIR__ . '/../testdata/matches-id.json' ) );
+		$this->testData = json_decode( file_get_contents( __DIR__ . '/../testdata/rules/matches-id.json' ) );
 	}
 
 	/**
