@@ -1,0 +1,8 @@
+{
+  "name": "only-on-123",
+  "file": "only-on-123.js",
+  "requires": [ ],
+  "rules": [
+    { "rule": "matches_id", "values": [123] }
+  ]
+}
