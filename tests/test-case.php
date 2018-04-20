@@ -11,21 +11,18 @@ class Test_Case extends \WP_UnitTestCase {
 	];
 
 	/**
-	 * We'll use this to partially mock \WP_Post in tests.
-	 *
-	 * @var \WP_Post
-	 */
-	protected $WP_Post;
-
-	/**
 	 * Set-up tests.
 	 */
 	public function setUp() {
 		parent:: setUp();
 
-		global $post;
-		$this->WP_Post = $post;
+		$this->load_interfaces();
+	}
 
+	/**
+	 * Load interfaces.
+	 */
+	private function load_interfaces() {
 		foreach ( $this->interfaces as $interface => $definition ) {
 			if ( !interface_exists( $interface ) ) {
 				require $definition;

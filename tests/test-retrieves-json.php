@@ -24,7 +24,7 @@ class Retrieves_JSON extends Test_Case {
 	/**
 	 * Test JSON is retrieved when the file exists.
 	 */
-	public function testExists() {
+	public function test_exists() {
 		$result = $this->class->retrieve( __DIR__ . '/testdata/retrieves-json.json' );
 		$this->assertTrue( is_object( $result ) );
 	}
@@ -32,7 +32,7 @@ class Retrieves_JSON extends Test_Case {
 	/**
 	 * When the file does not exist an exception should be thrown.
 	 */
-	public function testDoesntExist() {
+	public function test_doesnt_exist() {
 		$this->expectException( \Exception::class );
 		$this->class->retrieve( __DIR__ . '/testdata/abc123.json' );
 	}
@@ -40,7 +40,7 @@ class Retrieves_JSON extends Test_Case {
 	/**
 	 * Test invalid JSON is handled responsibly.
 	 */
-	public function testInvalidJSON() {
+	public function test_invalid_JSON() {
 		$this->expectException( \Exception::class );
 		$this->class->retrieve( __DIR__ . '/testdata/invalid-json.json' );
 	}
