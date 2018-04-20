@@ -7,14 +7,17 @@
  */
 
 namespace ByRobots\CleverEnqueue;
+
 use ByRobots\CleverEnqueue\Rules\Except_ID;
 use ByRobots\CleverEnqueue\Rules\Matches_ID;
 
 /**
- * Evaluates_File Class.
+ * Class Evaluates_File
  */
 class Evaluates_File {
 	/**
+	 * The post that's being checked.
+	 *
 	 * @var \WP_Post
 	 */
 	private $post;
@@ -31,7 +34,7 @@ class Evaluates_File {
 		$this->post = $post;
 
 		foreach ( $file->rules as $rule ) {
-			if ( ! $this->process_rule ( $rule ) ) {
+			if ( ! $this->process_rule( $rule ) ) {
 				return false;
 			}
 		}
@@ -42,11 +45,11 @@ class Evaluates_File {
 	/**
 	 * Process a rule entry.
 	 *
-	 * @param \stdClass $rule
+	 * @param \stdClass $rule The rule to check.
 	 *
-	 * @return bool
+	 * @return bool TRUE if the rule passes.
 	 */
-	private function process_rule ( \stdClass $rule ) {
+	private function process_rule( \stdClass $rule ) {
 		switch ( $rule->rule ) {
 			case 'matches_id':
 				$validator = new Matches_ID;
