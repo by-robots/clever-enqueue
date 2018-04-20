@@ -30,7 +30,7 @@ class Evaluates_File extends Test_Case {
 		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 123;
 
-		$this->assertTrue( $this->class->shouldLoad( $post, $rule ) );
+		$this->assertTrue( $this->class->should_load( $post, $rule ) );
 	}
 
 	/**
@@ -42,6 +42,6 @@ class Evaluates_File extends Test_Case {
 		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 321;
 
-		$this->assertFalse( $this->class->shouldLoad( $post, $rule ) );
+		$this->assertFalse( $this->class->should_load( $post, $rule ) );
 	}
 }
