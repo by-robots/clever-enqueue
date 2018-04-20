@@ -22,14 +22,26 @@ class Evaluates_File extends Test_Case {
 	}
 
 	/**
-	 * When only one rule is present in a file entry, and it is valid, the
-	 * class should decide the file is to be loaded.
+	 * When only one rule is present in a file entry, and it matches the post,
+	 * the class should decide the file is to be loaded.
 	 */
-	public function test_one_successful_rule() {
+	public function test_one_matching_rule() {
 		$rule     = json_decode( file_get_contents( __DIR__ . '/testdata/files/single-rule.json' ) );
 		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 123;
 
 		$this->assertTrue( $this->class->shouldLoad( $post, $rule ) );
+	}
+
+	/**
+	 * When only one rule is present in a file entry, and it does not match the
+	 * post, the class should decide the file is to be loaded.
+	 */
+	public function test_one_non_matching_rule() {
+		$rule     = json_decode( file_get_contents( __DIR__ . '/testdata/files/single-rule.json' ) );
+		$post     = \Mockery::mock( \stdClass::class );
+		$post->ID = 321;
+
+		$this->assertFalse( $this->class->shouldLoad( $post, $rule ) );
 	}
 }
