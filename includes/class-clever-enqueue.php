@@ -41,17 +41,7 @@ class Clever_Enqueue {
 		}
 
 		// Register hooks.
-		register_activation_hook( realpath( __DIR__ . '/..' ) . '/clever-enqueue.php', array( $this, 'install' ) );
 		add_action( 'init', array( $this, 'init' ) );
-	}
-
-	/**
-	 * Install the plugin.
-	 */
-	public function install() {
-		if ( ! file_exists( $this->json_config ) ) {
-			copy( __DIR__ . '/../blank.json', $this->json_config );
-		}
 	}
 
 	/**
