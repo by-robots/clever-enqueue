@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Include the main WooCommerce class.
 if ( ! class_exists( 'ByRobots\CleverEnqueue\Clever_Enqueue' ) ) {
-	include_once dirname( __FILE__ ) . '/includes/class-clever-enqueue.php';
+	include_once __DIR__ . '/includes/class-clever-enqueue.php';
 }
 
 /**
