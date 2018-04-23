@@ -17,8 +17,9 @@ class Clever_Enqueue {
 	 * @var array
 	 */
 	private $files = [
-		__DIR__ . '/class-retrieves-json.php',
 		__DIR__ . '/class-evaluates-file.php',
+		__DIR__ . '/class-retrieves-json.php',
+		__DIR__ . '/class-wordpress-invoker.php',
 	];
 
 	/**
@@ -29,9 +30,18 @@ class Clever_Enqueue {
 	private $json_config;
 
 	/**
-	 * Set-up the plugin.
+	 * The WordPress invoker.
+	 *
+	 * @var WordPress_Invoker
 	 */
-	public function __construct() {
+	private $invoker;
+
+	/**
+	 * Set-up the plugin.
+	 *
+	 * @param WordPress_Invoker $invoker The invoker to use to use WordPress' global functions.
+	 */
+	public function __construct( WordPress_Invoker $invoker = null ) {
 		// The default JSON config file.
 		$this->json_config = get_stylesheet_directory() . '/clever-enqueue.json';
 
@@ -40,15 +50,18 @@ class Clever_Enqueue {
 			require_once $file;
 		}
 
+		// Add the invoker.
+		$this->invoker = is_null( $invoker ) ? new WordPress_Invoker : $invoker;
+
 		// Register hooks.
-		add_action( 'init', array( $this, 'init' ) );
+		$this->invoker->add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
 	 * Initialise the plugin.
 	 */
 	public function init() {
-		if ( ! is_admin() ) { // Make sure admin assets aren't messed with.
+		if ( ! $this->invoker->is_admin() ) { // Make sure admin assets aren't messed with.
 			$this->load_assets();
 		}
 	}
@@ -86,10 +99,11 @@ class Clever_Enqueue {
 		$enqueue_method    = 'wp_enqueue_' . $type;
 
 		foreach ( $assets as $asset ) {
-			$deregister_method( $asset->name );
+			$this->invoker->$deregister_method( $asset->name );
 
 			if ( $evaluate->should_load( $post, $asset ) ) {
-				$enqueue_method( $asset->name, get_stylesheet_directory() . '/' . $asset->file, $asset->requires );
+				$this->invoker
+					->$enqueue_method( $asset->name, get_stylesheet_directory() . '/' . $asset->file, $asset->requires );
 			}
 		}
 	}
