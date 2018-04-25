@@ -2,6 +2,8 @@
 
 namespace ByRobots\CleverEnqueue\Tests;
 
+use Mockery\Mock;
+
 class Test_Case extends \WP_UnitTestCase {
 	/**
 	 * @var array
@@ -15,8 +17,14 @@ class Test_Case extends \WP_UnitTestCase {
 	 */
 	public function setUp() {
 		parent:: setUp();
-
 		$this->load_interfaces();
+	}
+
+	/**
+	 * Tear down.
+	 */
+	public function tearDown() {
+		\Mockery::close();
 	}
 
 	/**

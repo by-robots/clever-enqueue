@@ -5,20 +5,35 @@
       "file": "only-on-123.js",
       "requires": [ ],
       "rules": [
-        { "rule": "matches_id", "values": [123] }
+        { "rule": "matches_id", "values": [ 123 ] }
       ]
     }, {
       "name": "not-on-123",
       "file": "not-on-123.js",
       "requires": [ ],
       "rules": [
-        { "rule": "except_id", "values": [123] }
+        { "rule": "except_id", "values": [ 123 ] }
       ]
     }, {
       "name": "on-everything",
       "file": "on-everything.js",
       "requires": [ ],
       "rules": [ ]
+    }
+  ],
+  "style": [
+    {
+      "name": "all-styles",
+      "file": "all-styles.css",
+      "requires": [ ],
+      "rules": [ ]
+    }, {
+      "name": "all-styles",
+      "file": "all-styles.css",
+      "requires": [ ],
+      "rules": [
+        { "rule": "matches_id", "values": [ 123 ] }
+      ]
     }
   ]
 }
