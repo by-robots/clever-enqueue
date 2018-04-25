@@ -2,9 +2,12 @@
 
 namespace ByRobots\CleverEnqueue\Tests;
 
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\Mock;
 
 class Test_Case extends \WP_UnitTestCase {
+	use MockeryPHPUnitIntegration;
+
 	/**
 	 * @var array
 	 */

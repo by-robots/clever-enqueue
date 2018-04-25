@@ -34,9 +34,9 @@ class Processes_File extends Test_Case {
 
 		// Mock the invoker
 		$invoker = \Mockery::mock(WordPress_Invoker::class);
-		$invoker->shouldReceive('wp_deregister_javascript')->twice();
+		$invoker->shouldReceive('wp_deregister_javascript')->times( 3 );
 		$invoker->shouldReceive('wp_enqueue_javascript')->twice();
-		$invoker->shouldReceive('wp_deregister_style')->once();
+		$invoker->shouldReceive('wp_deregister_style')->twice();
 		$invoker->shouldReceive('wp_enqueue_style')->once();
 
 		// Process the file

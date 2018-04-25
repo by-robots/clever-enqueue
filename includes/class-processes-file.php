@@ -63,7 +63,6 @@ class Processes_File {
 
 		foreach ( $assets as $asset ) {
 			$this->invoker->$deregister_method( $asset->name );
-
 			if ( $evaluate->should_load( $post, $asset ) ) {
 				$this->invoker
 					->$enqueue_method( $asset->name, get_stylesheet_directory() . '/' . $asset->file, $asset->requires );
