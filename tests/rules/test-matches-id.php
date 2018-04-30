@@ -33,7 +33,7 @@ class Matches_ID extends Test_Case {
 	 * If the ID of the current page matches the rule should pass.
 	 */
 	public function test_passes() {
-		$post     = \Mockery::mock(\stdClass::class);
+		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 123;
 
 		$this->assertTrue( $this->rule->passes( $post, $this->testData ) );

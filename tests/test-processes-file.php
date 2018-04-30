@@ -29,18 +29,18 @@ class Processes_File extends Test_Case {
 	public function test_enqueues_files() {
 		// Set the post to test against
 		global $post;
-		$post     = \Mockery::mock(\stdClass::class);
+		$post     = \Mockery::mock( \stdClass::class );
 		$post->ID = 999;
 
 		// Mock the invoker
-		$invoker = \Mockery::mock(WordPress_Invoker::class);
-		$invoker->shouldReceive('wp_deregister_javascript')->times( 3 );
-		$invoker->shouldReceive('wp_enqueue_javascript')->twice();
-		$invoker->shouldReceive('wp_deregister_style')->twice();
-		$invoker->shouldReceive('wp_enqueue_style')->once();
+		$invoker = \Mockery::mock( WordPress_Invoker::class );
+		$invoker->shouldReceive( 'wp_deregister_javascript' )->times( 3 );
+		$invoker->shouldReceive( 'wp_enqueue_javascript' )->twice();
+		$invoker->shouldReceive( 'wp_deregister_style' )->twice();
+		$invoker->shouldReceive( 'wp_enqueue_style' )->once();
 
 		// Process the file
-		$this->class = new \ByRobots\CleverEnqueue\Processes_File($invoker);
+		$this->class = new \ByRobots\CleverEnqueue\Processes_File( $invoker );
 		$this->class->load_assets( __DIR__ . '/testdata/full-example.json' );
 	}
 }

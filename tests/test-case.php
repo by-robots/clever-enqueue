@@ -3,7 +3,6 @@
 namespace ByRobots\CleverEnqueue\Tests;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use Mockery\Mock;
 
 class Test_Case extends \WP_UnitTestCase {
 	use MockeryPHPUnitIntegration;
@@ -19,7 +18,7 @@ class Test_Case extends \WP_UnitTestCase {
 	 * Set-up tests.
 	 */
 	public function setUp() {
-		parent:: setUp();
+		parent::setUp();
 		$this->load_interfaces();
 	}
 
@@ -35,7 +34,7 @@ class Test_Case extends \WP_UnitTestCase {
 	 */
 	private function load_interfaces() {
 		foreach ( $this->interfaces as $interface => $definition ) {
-			if ( !interface_exists( $interface ) ) {
+			if ( ! interface_exists( $interface ) ) {
 				require $definition;
 			}
 		}
